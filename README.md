@@ -16,10 +16,10 @@ Built with WordPress
 
 And several plugins:
   1. Elementor page builder: this plugin is used to design and build web pages.An efficient builder that can quickly edit pages and load them instantly.
-  2. Static HTML Output: This plugin is used to implement version control. Through this plug-in, all files in Wordpress can be downloaded locally. Then you can upload these files      to GitHub.
-  3. All in one WP security: This plug-in is used to enhance the security of the website. It improves the security of the website by checking vulnerabilities, building different        levels of firewalls, and other security settings.
-  4. Flexible SSL for CloudFlare: This plugin is an important part of enabling Flexible SSL on WordPress, and can prevent infinite redirection loops when loading a WordPress            website under Cloudflare's Flexible SSL system. Thereby improving the security of the website.
-  5. WP file manager: This plugin allows users to edit, delete, upload, download, compress, copy and paste files and folders directly from the WordPress backend. Let us edit and        manage files more easily and quickly.
+  2. Static HTML Output: This plugin is used to implement version control. Through this plug-in, all files in Wordpress can be downloaded locally. Then you can upload these files to GitHub.
+  3. All in one WP security: This plug-in is used to enhance the security of the website. It improves the security of the website by checking vulnerabilities, building different levels of firewalls, and other security settings.
+  4. Flexible SSL for CloudFlare: This plugin is an important part of enabling Flexible SSL on WordPress, and can prevent infinite redirection loops when loading a WordPress website under Cloudflare's Flexible SSL system. Thereby improving the security of the website.
+  5. WP file manager: This plugin allows users to edit, delete, upload, download, compress, copy and paste files and folders directly from the WordPress backend. Let us edit and manage files more easily and quickly.
 
 ## Features
 
@@ -48,6 +48,7 @@ After creating a free student account on AWS. We logged into our AWS console and
   The above three steps enable us to install Wordpress on AWS. 
 
 But, next few steps helped in pointing our domain to Wordpress for which we connected our domain to AWS DNS server 
+
 
 **Adding domain to our Wordpress Site on Amazon Web Services.**
   1.	Firstly we created and associated our Elastic IP for our Wordpress EC2 instance.
