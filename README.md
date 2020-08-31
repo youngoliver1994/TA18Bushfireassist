@@ -29,6 +29,35 @@ And several plugins:
 
 **Know Your Region:** display locations that occur bushfire in real time.
 
+## Deployment
+
+Our domain “bushfireassist.ga” is hosted on AWS (Amazon Web Services) which is a perfect platform for our project as per our requirements. As AWS is a powerful cloud computing platform that allows us to harness the power of Amazon’s superior infrastructure on a pay as you go basis. 
+
+Before we would have begun with the hosting we got a free domain **“bushfireassist.ga”** from **“Freenom”** for 12 months, this could enable us to help with the further development.
+
+After creating a free student account on AWS. We logged into our AWS console and started with hosting by following below steps:-
+
+**Creating Wordpress Bitnami install on AWS**
+
+**Steps:**
+
+  1.	Firstly, we launched an EC2 instance which provides a virtual platform to run the application by using “WordPress by Bitnami” gifted by AWS marketplace.
+  2.	Once an instance is launched, and after testing the public ip (http://our-ip/ ) under the address bar of a new browser tab to view your website. We could see your               WordPress site with the default theme as below.     
+  ![DD1](https://user-images.githubusercontent.com/70268577/91739647-93f45680-ebf5-11ea-8d17-0a8805532444.png)
+  3.  After entering our credentials for the above which is obtained under the **System-log** file under the ec2 instance, we could see the dashboard page.
+  The above three steps enable us to install Wordpress on AWS. 
+
+But, next few steps helped in pointing our domain to Wordpress for which we connected our domain to AWS DNS server 
+
+**Adding domain to our Wordpress Site on Amazon Web Services.**
+  1.	Firstly we created and associated our Elastic IP for our Wordpress EC2 instance.
+  2.	Next, we have connected it with “Route53” which is our Amazon web service DNS management that allows us to route traffic to our EC2 instance. 
+  3.	Once adding our domain name on the hosted zone and creating a record for our domain name which provides us with name servers addresses.
+  4.	After obtaining the above addresses, we added these nameservers to our registered domain name website which helped in pointing our domain to the AWS Server.
+  Hence, enables our domain name to be hosted on AWS and run over the internet.
+  ![DD2](https://user-images.githubusercontent.com/70268577/91739651-95258380-ebf5-11ea-83a6-0f4514ad8f1c.png)
+
+
 ## Installation
 
   1. Enter the domain name in a browser, and add “/wp-admin” after the domain name.
