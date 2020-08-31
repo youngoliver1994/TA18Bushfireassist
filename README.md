@@ -26,8 +26,11 @@ And several plugins:
 
 ## Features
 
-Preparation Plan: provide comprehensive guidelines to users for helping them to protect their health and property in  various situations, especially for people with disability or have special needs.
+Preparation Plan: 
+Provide comprehensive guidelines to users for helping them to protect their health and property in  various situations, especially for people with disability or have special needs.
 
-Self Assessment:  assess and consolidate users’ knowledge to improve their awareness of protecting themselves and others from bushfires.
+Self Assessment: 
+Assess and consolidate users’ knowledge to improve their awareness of protecting themselves and others from bushfires.
 
-Know Your Region: display locations that occur bushfire in real time.
+Know Your Region: 
+Display locations that occur bushfire in real time.
