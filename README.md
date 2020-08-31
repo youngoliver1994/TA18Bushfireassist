@@ -55,6 +55,7 @@ But, next few steps helped in pointing our domain to Wordpress for which we conn
   2.	Next, we have connected it with “Route53” which is our Amazon web service DNS management that allows us to route traffic to our EC2 instance. 
   3.	Once adding our domain name on the hosted zone and creating a record for our domain name which provides us with name servers addresses.
   4.	After obtaining the above addresses, we added these nameservers to our registered domain name website which helped in pointing our domain to the AWS Server.
+  
   Hence, enables our domain name to be hosted on AWS and run over the internet.
   ![DD2](https://user-images.githubusercontent.com/70268577/91739651-95258380-ebf5-11ea-83a6-0f4514ad8f1c.png)
 
