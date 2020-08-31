@@ -6,10 +6,6 @@ Bushfire Assist is a website for providing people who live in bushfire prone reg
 
 Residents living in bushfire prone regions frequently express disappointment with the lack of awareness and provision of support during times of bushfire; this disregard is also reflected in the current disaster plans in  Australia which scarcely takes into account the disabled community in times of such events. This is a gap which needs to be addressed in a  way such that all those affected have sufficient awareness of bushfires so that they are able to plan and prepare beforehand thus allowing them to persevere in such challenging times.
 
-## Build Status
-
-
-
 ## Screenshots
 
 ![04](https://user-images.githubusercontent.com/70268577/91729054-51c41880-ebe7-11ea-8c1b-bcd231f1a3ee.png)
@@ -55,4 +51,7 @@ And several plugins:
   
   ![03](https://user-images.githubusercontent.com/70268577/91729048-4f61be80-ebe7-11ea-929e-870d16c7bed9.png)
 
+## License
+
+MU © Apocalypse
 
