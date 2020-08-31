@@ -32,3 +32,14 @@ And several plugins:
 **Self Assessment:** assess and consolidate users’ knowledge to improve their awareness of protecting themselves and others from bushfires.
 
 **Know Your Region:** display locations that occur bushfire in real time.
+
+## Installation
+
+  1. Enter the domain name in a browser, and add “/wp-admin” after the domain name.
+  ![01](https://user-images.githubusercontent.com/70268577/91729038-4a9d0a80-ebe7-11ea-8613-e0786433154c.png)
+  
+  2. Enter user name and password in the login page.
+  ![02](https://user-images.githubusercontent.com/70268577/91729042-4c66ce00-ebe7-11ea-96a9-a2d9620f8b26.png)
+  
+  3. 
+
