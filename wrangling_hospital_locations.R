@@ -10,7 +10,7 @@ hospital_locations[,c(3,5,10,11,13,15,16,17)] <- list(NULL)
 # change column names
 colnames(hospital_locations)[1] <- "Longitude"
 colnames(hospital_locations)[2] <- "Latitude"
-colnames(hospital_locations)[3] <- "MedicalCentre"
+colnames(hospital_locations)[3] <- "Medical_Centre"
 colnames(hospital_locations)[8] <- "Area"
 
 # concatenate the Street Number, Road Name and Road Type to one column
@@ -36,7 +36,7 @@ specialisations <- c('Surgery','Surgicentre','Plastic Surgery',
 # remove rows which contain the specialisation in the Medical Centre name
 for (specialisation in specialisations){
   hospital_locations <- hospital_locations[!grepl(specialisation, 
-                                                 hospital_locations$`MedicalCentre`),]
+                                                 hospital_locations$`Medical_Centre`),]
 }
 
 # reset index
@@ -47,10 +47,10 @@ hospital_locations$Area <- toupper(hospital_locations$Area)
 
 # remove values within parentheses in Area and Medical Centre column
 hospital_locations$Area <- gsub("\\s*\\([^\\)]+\\)","",as.character(hospital_locations$Area))
-hospital_locations$`MedicalCentre` <- gsub("\\s*\\([^\\)]+\\)","",as.character(hospital_locations$`MedicalCentre`))
+hospital_locations$`Medical_Centre` <- gsub("\\s*\\([^\\)]+\\)","",as.character(hospital_locations$`Medical_Centre`))
 
 # remove commas and everything after the comma in Medical Centre column
-hospital_locations$`MedicalCentre` <- gsub("(.*),.*", "\\1", as.character(hospital_locations$`MedicalCentre`))
+hospital_locations$`Medical_Centre` <- gsub("(.*),.*", "\\1", as.character(hospital_locations$`Medical_Centre`))
 
 # write to file
 write.csv(hospital_locations, 'Medical Centres.csv')
