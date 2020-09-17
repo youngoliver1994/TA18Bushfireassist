@@ -7,7 +7,7 @@ hospital_locations <- read.csv('Hospital_Locations.csv')
 # nullify/drop columns
 hospital_locations[,c(3,5,10,11,13,15,16,17)] <- list(NULL)
 
-# change column names
+# rename columns
 colnames(hospital_locations)[1] <- "Longitude"
 colnames(hospital_locations)[2] <- "Latitude"
 colnames(hospital_locations)[3] <- "Medical_Centre"
