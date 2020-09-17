@@ -1,5 +1,3 @@
-setwd('~/Desktop/Dataset')
-
 # load library
 library(dplyr)
 
