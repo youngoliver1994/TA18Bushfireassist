@@ -9,8 +9,8 @@ from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
 
 # read in both active fire datasets
-active_fire1 = pd.read_csv("fire_archive_M6_148262.csv")
-active_fire2 = pd.read_csv("fire_nrt_M6_148262.csv")
+active_fire1 = pd.read_csv("fire_archive_M6_157545.csv")
+active_fire2 = pd.read_csv("fire_nrt_M6_157545.csv")
 
 # append dataset 2 to dataset 1
 active_fires = active_fire1.append(active_fire2, sort=False)
@@ -79,9 +79,21 @@ localities = list(aus_postcodes_vic.locality)
 # create a new df to hold unique localities and postcodes
 column_names = ["Locality", "Postcode", "Fire_Activity_Occurrences"]
 unique_locality_postcode = pd.DataFrame(columns = column_names, index=range(0,n_shp))
+unique_locality_postcode['Postcode'] = unique_locality_postcode['Postcode'].astype(str)
 
+# populate new df with localities and postcodes if the postcode exists in the shapefile
 for i in range(len(recs)):
     unique_locality_postcode.Locality[i] = recs[i][6]
+    if recs[i][8] != '': 
+        unique_locality_postcode.Postcode[i] = recs[i][8] 
+                         
+# populate empty rows in the postcode column
+for i in range(len(unique_locality_postcode)):
+    for j in range(len(localities)):
+        if unique_locality_postcode.Locality[i] == localities[j]:
+            if unique_locality_postcode.Postcode[i] == 'nan':
+                unique_locality_postcode.Postcode[i] = postcodes[j]
+                break  
 
 # create a list of the Localities column in the active fire dataset
 active_fire_localities = list(active_fire.Locality)
@@ -93,4 +105,4 @@ for i in range(len(unique_locality_postcode)):
     # fill the fire_activity_occurrences column accordingly
     unique_locality_postcode.Fire_Activity_Occurrences[i] = occurrences
     
-unique_locality_postcode.to_csv('fire_activity_per_locality.csv', sep=',')
+unique_locality_postcode.to_csv('Fire Activity per Locality (corrected).csv', sep=',')
