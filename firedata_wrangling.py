@@ -105,4 +105,4 @@ for i in range(len(unique_locality_postcode)):
     # fill the fire_activity_occurrences column accordingly
     unique_locality_postcode.Fire_Activity_Occurrences[i] = occurrences
     
-unique_locality_postcode.to_csv('Fire Activity per Locality (corrected).csv', sep=',')
+unique_locality_postcode.to_csv('Fire Activity per Locality.csv', sep=',')
