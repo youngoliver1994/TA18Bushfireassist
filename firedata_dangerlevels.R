@@ -7,12 +7,6 @@ fire_activity <- read.csv('Fire Activity per Locality.csv')
 # create new column for fire danger levels
 fire_activity$Levels <- NA
 
-# remove duplicated rows of locality and postcode
-fire_activity <- fire_activity[!duplicated(fire_activity[c(1,2)]),]
-
-# find the range of fire activity occurrences
-range <- max(fire_activity$Fire_Activity_Occurrences) - min(fire_activity$Fire_Activity_Occurrences)
-
 # get the width of the class interval by dividing the range by 6
 width <- range/6
 
