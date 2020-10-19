@@ -81,7 +81,6 @@ for (i in 1:mc_rows){
       medical_centres$Rating[i] <- 'No Rating'
     } 
   }
-  
   else{
     medical_centres$Rating[i] <- 'No Rating'
   }
