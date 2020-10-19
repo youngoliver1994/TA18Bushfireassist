@@ -10,23 +10,21 @@ from pandas import read_excel
 from geopy.geocoders import Nominatim
 from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
-%pprint
 
-# reading in the Bushfire Prone Area shapefile
+# read in the Bushfire Prone Area shapefile
 sf_bushfireprone = shapefile.Reader("./bushfire_prone_area")
 recs_bpa = sf_bushfireprone.records()       # records of bushfire prone LGAs
-
 nshp_bpa = len(recs_bpa)                    # number of bushfire prone LGAs
+
 LGA_BushfireProne = []                      # initialise list to hold all bushfire prone LGAs in the shapefile
 
 # populate list
 for nshp in range(nshp_bpa):
     LGA_BushfireProne.append(recs_bpa[nshp][1])
 
-# reading in the Greater Melbourne shapefile
+# read in the Greater Melbourne shapefile
 sf_greatermelb = shapefile.Reader("./Aus-Melbourne02")
 recs_gm = sf_greatermelb.records()          # records of LGAs in Greater Melbourne  
-
 nshp_gm = len(recs_gm)                      # number of LGAs in Greater Melbourne
 
 # create new dataframe to hold all LGAs in Greater Melbourne
