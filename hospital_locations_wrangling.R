@@ -52,5 +52,8 @@ hospital_locations$`Medical_Centre` <- gsub("\\s*\\([^\\)]+\\)","",as.character(
 # remove commas and everything after the comma in Medical Centre column
 hospital_locations$`Medical_Centre` <- gsub("(.*),.*", "\\1", as.character(hospital_locations$`Medical_Centre`))
 
+# remove dashes in Area column
+hospital_locations$Area <- gsub("-", " ", hospital_locations$Area)
+
 # write to file
 write.csv(hospital_locations, 'Medical Centres.csv')
