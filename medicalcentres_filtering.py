@@ -58,7 +58,7 @@ medical_centres = pd.read_csv("Medical Centres.csv")
 # drop the 'Unnamed: 0' column
 medical_centres.drop(medical_centres.columns[0], axis=1, inplace=True)
 
-# filter the Medical Centres data to only contain Bushfire Prone LGAs in regional Victoria
+# filter the Medical Centres data to only contain Bushfire Prone LGAs in Regional Victoria
 bool_mc = medical_centres.Area.isin(LGA_BushfireProne)
 filtered_mc = medical_centres[bool_mc]
 
