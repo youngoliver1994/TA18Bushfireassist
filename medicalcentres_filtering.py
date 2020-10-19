@@ -49,7 +49,7 @@ for lga in LGA_GreaterMelb:
     if lga in LGA_BushfireProne:
         LGA_BushfireProne.remove(lga)
 
-# also remove unincorporated LGAs
+# also remove the unincorporated LGAs
 LGA_BushfireProne = [lga for lga in LGA_BushfireProne if "UNINC" not in lga]        
 
 # read in Medical Centres data
