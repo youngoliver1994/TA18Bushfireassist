@@ -89,7 +89,7 @@ for (i in 1:mc_rows){
 # for medical centres that were not found using the Google Places API, enter 'No Rating' in the Rating column
 medical_centres[is.na(medical_centres)] <- "No Rating"
 
-# create link for Google Maps for each medical centre and populate the Directions column
+# create Google Maps link for each medical centre and populate the Directions column
 for (i in 1:mc_rows){
   mc_link_str <- gsub("&", "", medical_centres$MedicalCentre[i], fixed = TRUE)
   mc_link_str <- gsub(" ", "%20", mc_link_str, fixed = TRUE)
