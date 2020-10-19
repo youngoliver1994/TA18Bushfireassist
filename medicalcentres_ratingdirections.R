@@ -101,7 +101,7 @@ for (i in 1:mc_rows){
   mc_link_str <- paste0(mc_link_str, mc_link_add)
   mc_link_str <- paste0(mc_link_str, medical_centres$Postcode[i])
   
-  link <- paste0('https://www.google.com/maps/search/?api=1&query=',mc_link_str)
+  link <- paste0('https://www.google.com/maps/search/?api=1&query=', mc_link_str)
   medical_centres$Directions[i] <- link
   
 }
