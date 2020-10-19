@@ -64,7 +64,7 @@ for (i in 1:mc_rows){
       else{
         medical_centres$Rating[i] <- 'No Rating'
       }
-      }
+    }
   }
   
   # if Google Places API comes up with exactly one result, obtain the rating as appropriate
@@ -79,14 +79,12 @@ for (i in 1:mc_rows){
     }
     else{
       medical_centres$Rating[i] <- 'No Rating'
-    }
-      
+    } 
   }
   
   else{
     medical_centres$Rating[i] <- 'No Rating'
   }
-  
 }
 
 # for medical centres that were not found using the Google Places API, enter 'No Rating' in the Rating column
@@ -103,7 +101,6 @@ for (i in 1:mc_rows){
   
   link <- paste0('https://www.google.com/maps/search/?api=1&query=', mc_link_str)
   medical_centres$Directions[i] <- link
-  
 }
 
 # write to file
