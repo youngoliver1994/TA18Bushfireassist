@@ -42,7 +42,7 @@ while i < len(active_fire):
     i = i + 1
     
 n_shp = len(shapes)               # number of localities
-n_rows = len(active_fires)         # number of rows in active_fire
+n_rows = len(active_fires)        # number of rows in active_fire
 
 for nshp in range(n_shp): 
     # for each shape in the shapefile, fill an array with the lon, lat points belonging to that shape
