@@ -120,7 +120,7 @@ if ($search_query != '')
     }
 }
 
-// if no postcode has been entered, display table with details of the top 7 most fire-impacted localities
+// if no postcode has been entered, display table with details of the top 7 most fire impacted localities
 else
 {
     displayTable();
