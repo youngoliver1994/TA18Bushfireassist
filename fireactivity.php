@@ -21,7 +21,7 @@ function displayResults($results)
                   <td style="width: 20%;"><center><?php echo ucwords(strtolower($print->locality)); ?><?php echo ', '; ?><?php echo ' '; ?><?php echo $print->postcode; ?></center></td>
                   <td style="width: 15%;"><center><strong><?php echo $print->fire_occurrences; ?></strong></center></td>
 
-<!-- display the levels as icons -->
+<!-- display the severity levels as icons -->
 <td style="width: 10%;"><center>
 <?php
         if ($print->levels == "Critical")
@@ -85,7 +85,7 @@ style=" fill:#000000;"><g transform=""><g fill="none" fill-rule="nonzero" stroke
 global $wpdb;
 $search_query = ($_POST['value']);
 
-// if a postcode has been entered, retrieve how many rows in the table contain this postcode and have a fire occurrence of more than 0
+// if a postcode has been entered, retrieve how many rows in the table contain this postcode that have a fire occurrence of more than 0
 if ($search_query != '')
 {
     $count = $wpdb->get_var("SELECT COUNT(*) FROM `wpstg0_fire_events` WHERE postcode like '$search_query' and fire_occurrences > 0;");
@@ -107,19 +107,19 @@ if ($search_query != '')
         echo ' localities in Victoria with <strong> recent <strong> fire occurrences </center><br>';
 
         // display Refresh Results button
-        
         { ?>
 <input type="button" value="Refresh Results" style="float:left; background-color:black" onClick="location.href=location.href">
 <?php
         }
         echo '<br><br>';
 
+        // call displayTable function
         displayTable();
 
-        // display rows in a table
         // retrieve the results
         $results = $wpdb->get_results("SELECT * FROM `wpstg0_fire_events` WHERE postcode like '$search_query'  and fire_occurrences > 0;");
 
+        // call displayResults function
         displayResults($results);
         echo '</table>';
     }
