@@ -1,25 +1,28 @@
 <?php
+
+// display a table
 function displayTable()
 {
     echo '<table border="3" style= "color: #000000; margin: 0 auto; width:1000px;">
             <tr>
-            <th style="width: 15%;"><center><strong><img src="https://img.icons8.com/material/24/000000/worldwide-location--v1.png"/> Locality</strong></center></th>
-            <th style="width: 15%;"><center><strong><img src="https://img.icons8.com/ios-glyphs/30/000000/fire-element--v1.png"/> Fire Events</strong></center></th>
-            <th style="width: 10%;"><center><strong><img src="https://img.icons8.com/material/24/000000/severity.png"/> Severity</strong></center></th>
+               <th style="width: 15%;"><center><strong><img src="https://img.icons8.com/material/24/000000/worldwide-location--v1.png"/> Locality</strong></center></th>
+               <th style="width: 15%;"><center><strong><img src="https://img.icons8.com/ios-glyphs/30/000000/fire-element--v1.png"/> Fire Events</strong></center></th>
+               <th style="width: 10%;"><center><strong><img src="https://img.icons8.com/material/24/000000/severity.png"/> Severity</strong></center></th>
           </tr>';
 
 }
 
+// display results in the table
 function displayResults($results)
 {
     foreach ($results as $print)
     {?>
         <tr>
-        <!-- display the locality with the postcode -->
-        <td style="width: 20%;"><center><?php echo ucwords(strtolower($print->locality)); ?><?php echo ', '; ?><?php echo ' '; ?><?php echo $print->postcode; ?></center></td>
-        <td style="width: 15%;"><center><strong><?php echo $print->fire_occurrences; ?></strong></center></td>
-        <!-- display the severity levels as icons -->
-        <td style="width: 10%;"><center>
+           <!-- display the locality with the postcode -->
+           <td style="width: 20%;"><center><?php echo ucwords(strtolower($print->locality)); ?><?php echo ', '; ?><?php echo ' '; ?><?php echo $print->postcode; ?></center></td>
+           <td style="width: 15%;"><center><strong><?php echo $print->fire_occurrences; ?></strong></center></td>
+           <!-- display the severity levels as icons -->
+           <td style="width: 10%;"><center>
             
         <?php
         if ($print->levels == "Critical")
