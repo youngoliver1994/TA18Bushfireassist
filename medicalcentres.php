@@ -207,7 +207,7 @@ if ($search_query != '' && $allow_directions == "Yes")
             echo ' km';
                   ?></td>    
                   
-                  <td style="width: 20%;"><?php echo "<center><a target = '_blank' href=$print->Directions><img src='https://img.icons8.com/office/40/000000/map-marker.png' class='image'></a></center>"; ?></strong></td> 
+                  <td style="width: 20%;"><?php echo "<center><a target = '_blank' onclick=\"alert('You are about to open a new tab. Please click OK or Close to continue.')\" href=$print->Directions><img src='https://img.icons8.com/office/40/000000/map-marker.png' class='image'></a></center>"; ?></strong></td> 
           </tr>
 
 <?php
@@ -254,7 +254,7 @@ else if ($search_query != '' && $allow_directions == '')
                   <td style="width: 20%;"><?php echo $print->MedicalCentre; ?></td>
                   <td style="width: 20%;"><?php echo $print->Address; ?><?php echo ', '; ?><?php echo $print->Area; ?><?php echo ' '; ?><?php echo $print->Postcode; ?></td>
                   <td style="width: 20%;"><center><?php displayRatings($print); ?></td>
-                  <td style="width: 20%;"><?php echo "<center><a target = '_blank' href=$print->Directions><img src='https://img.icons8.com/office/40/000000/map-marker.png' class='image'></a></center>"; ?></strong></td> 
+                  <td style="width: 20%;"><?php echo "<center><a target = '_blank' onclick=\"alert('You are about to open a new tab. Please click OK or Close to continue.')\" href=$print->Directions><img src='https://img.icons8.com/office/40/000000/map-marker.png' class='image'></a></center>"; ?></strong></td> 
                </tr>
 <?php
         }
