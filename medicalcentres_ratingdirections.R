@@ -36,6 +36,7 @@ for (i in 1:mc_rows){
   mc_str <- paste(medical_centres$MedicalCentre[i], stripped_address[i])
   
   # find details of medical centre using Google Places API
+  # apiKey <- ####################
   curr_mc <- google_places(search_string = mc_str, key = apiKey)
   
   # if Google Places API result comes up empty, then enter 'No Rating' in the Rating column
