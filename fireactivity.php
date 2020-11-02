@@ -3,7 +3,7 @@
 // display a table
 function displayTable()
 {
-    echo '<table border="3" style= "color: #000000; margin: 0 auto; width:1000px;">
+    echo '<table border="3" style= "color: #000000; margin: 0 auto;">
             <tr>
                <th style="width: 15%;"><center><strong><img src="https://img.icons8.com/material/24/000000/worldwide-location--v1.png"/> Locality</strong></center></th>
                <th style="width: 15%;"><center><strong><img src="https://img.icons8.com/ios-glyphs/30/000000/fire-element--v1.png"/> Fire Events</strong></center></th>
