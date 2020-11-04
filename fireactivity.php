@@ -1,6 +1,6 @@
 <?php
 
-// display a table
+// display a table with headings
 function displayTable()
 {
     echo '<table border="3" style= "color: #000000; margin: 0 auto;">
