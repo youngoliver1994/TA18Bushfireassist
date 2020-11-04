@@ -9,7 +9,6 @@ function displayTable()
                <th style="width: 15%;"><center><strong><img src="https://img.icons8.com/ios-glyphs/30/000000/fire-element--v1.png"/> Fire Events</strong></center></th>
                <th style="width: 10%;"><center><strong><img src="https://img.icons8.com/material/24/000000/severity.png"/> Severity</strong></center></th>
           </tr>';
-
 }
 
 // display results in the table
