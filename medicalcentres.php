@@ -104,7 +104,7 @@ $allow_directions = ($_POST['directions']);
 // if a postcode has been entered and the user has selected to display distances, retrieve how many rows in the table contain this postcode
 if ($search_query != '' && $allow_directions == "Yes")
 {
-    $count = $wpdb->get_var("SELECT COUNT(*) FROM `wpstg0_regional_medcen` WHERE Postcode like '$search_query';");
+    $count = $wpdb->get_var("SELECT COUNT(*) FROM `wpstg0_ba_medicalcentres` WHERE Postcode like '$search_query';");
 
     // if no rows have been found, display the following message
     if ($count == 0)
@@ -181,14 +181,14 @@ if ($search_query != '' && $allow_directions == "Yes")
               </tr>';
 
         // retrieve the results and display them in the table
-        $results = $wpdb->get_results("SELECT * FROM `wpstg0_regional_medcen` WHERE Postcode like '$search_query';");
+        $results = $wpdb->get_results("SELECT * FROM `wpstg0_ba_medicalcentres` WHERE Postcode like '$search_query';");
 
         foreach ($results as $print)
         {?>
               <tr>
                   <td style="width: 20%;"><?php echo $print->MedicalCentre; ?></td>
                   <td style="width: 20%;"><?php echo $print->Address; ?><?php echo ', '; ?><?php echo $print->Area; ?><?php echo ' '; ?><?php echo $print->Postcode; ?></td>
-                  <td style="width: 20%;"><center><?php displayRatings($print); ?></td>
+                  <td style="width: 20%;"><center><?php displayRatings($print); ?></center></td>
                   <td style="width: 20%;"><?php
          
             // Haversine formula to estimate distance between points
@@ -207,7 +207,7 @@ if ($search_query != '' && $allow_directions == "Yes")
             echo ' km';
                   ?></td>    
                   
-                  <td style="width: 20%;"><?php echo "<center><a target = '_blank' onclick=\"alert('You are about to open a new tab. Please click OK or Close to continue.')\" href=$print->Directions><img src='https://img.icons8.com/office/40/000000/map-marker.png' class='image'></a></center>"; ?></strong></td> 
+                  <td style="width: 20%;"><?php echo "<center><a target = '_blank' onclick=\"alert('You are about to leave bushfireassist.ga. Please click OK or Close to continue.')\" href=$print->Directions><img src='https://img.icons8.com/office/40/000000/map-marker.png' class='image'></a></center>"; ?></td> 
           </tr>
 
 <?php
@@ -219,7 +219,7 @@ if ($search_query != '' && $allow_directions == "Yes")
 // if a postcode has been entered but the user has not selected to display distances, retrieve how many rows contain this postcode
 else if ($search_query != '' && $allow_directions == '')
 {
-    $count = $wpdb->get_var("SELECT COUNT(*) FROM `wpstg0_regional_medcen` WHERE Postcode like '$search_query';");
+    $count = $wpdb->get_var("SELECT COUNT(*) FROM `wpstg0_ba_medicalcentres` WHERE Postcode like '$search_query';");
 
     // if no rows have been found, display the following message
     if ($count == 0)
@@ -229,7 +229,7 @@ else if ($search_query != '' && $allow_directions == '')
         echo '. Please enter another postcode. </center><br>';
     }
 
-    // if rows have been found display the results in a table
+    // if rows have been found, display the results in a table
     else
     {
         {?>
@@ -246,15 +246,15 @@ else if ($search_query != '' && $allow_directions == '')
                  <th style="width: 25%;"><center><strong><img src="https://img.icons8.com/material-sharp/24/000000/compass.png"/> Getting There<strong></center></th>
               </tr>';
 
-        $results = $wpdb->get_results("SELECT * FROM `wpstg0_regional_medcen` WHERE Postcode like '$search_query';");
+        $results = $wpdb->get_results("SELECT * FROM `wpstg0_ba_medicalcentres` WHERE Postcode like '$search_query';");
 
         foreach ($results as $print)
         {?>
                <tr>
                   <td style="width: 20%;"><?php echo $print->MedicalCentre; ?></td>
                   <td style="width: 20%;"><?php echo $print->Address; ?><?php echo ', '; ?><?php echo $print->Area; ?><?php echo ' '; ?><?php echo $print->Postcode; ?></td>
-                  <td style="width: 20%;"><center><?php displayRatings($print); ?></td>
-                  <td style="width: 20%;"><?php echo "<center><a target = '_blank' onclick=\"alert('You are about to open a new tab. Please click OK or Close to continue.')\" href=$print->Directions><img src='https://img.icons8.com/office/40/000000/map-marker.png' class='image'></a></center>"; ?></strong></td> 
+                   <td style="width: 20%;"><center><?php displayRatings($print); ?></center></td>
+                  <td style="width: 20%;"><?php echo "<center><a target = '_blank' onclick=\"alert('You are about to leave bushfireassist.ga. Please click OK or Close to continue.')\" href=$print->Directions><img src='https://img.icons8.com/office/40/000000/map-marker.png' class='image'></a></center>"; ?></td> 
                </tr>
 <?php
         }
