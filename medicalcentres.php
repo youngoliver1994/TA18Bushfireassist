@@ -191,7 +191,7 @@ if ($search_query != '' && $allow_directions == "Yes")
                   <td style="width: 20%;"><center><?php displayRatings($print); ?></center></td>
                   <td style="width: 20%;"><?php
          
-            // Haversine formula to estimate distance between points
+            // Vincenty formula to estimate distance between points
             // adapted code credits to martinstoeckli (https://stackoverflow.com/users/575765/martinstoeckli) on Stack Overflow at https://stackoverflow.com/questions/10053358/measuring-the-distance-between-two-coordinates-in-php
             $latFrom = deg2rad($latitude);
             $lonFrom = deg2rad($longitude);
