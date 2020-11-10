@@ -30,7 +30,7 @@ nshp_gm = len(recs_gm)                      # number of LGAs in Greater Melbourn
 # create new dataframe to hold all LGAs in Greater Melbourne
 LGA_GreaterMelb = pd.DataFrame(columns=['LGA'])   
 
-# populate LGA column
+# populate the LGA column
 for nshp in range(nshp_gm): 
     LGA_GreaterMelb = LGA_GreaterMelb.append({'LGA':recs_gm[nshp][2]}, ignore_index=True)
 
