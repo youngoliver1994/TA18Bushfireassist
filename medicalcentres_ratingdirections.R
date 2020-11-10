@@ -4,19 +4,25 @@ library(googleway)
 library(stringr)
 library(data.table)
 
-# read in dataset
+# read in the dataset
 medical_centres <- read.csv("Medical Centres in Regional Victoria.csv")
+
+# nullify X column
+medical_centres$X <- NULL
 
 # add new columns
 medical_centres$Rating <- NA
 medical_centres$Directions <- NA
 
-# change Address and Area columns to title case
+# change the Address and Area columns to title case
 medical_centres$Address <- str_to_title(medical_centres$Address)
 medical_centres$Area <- str_to_title(medical_centres$Area)
 
-# change '&' to 'and' in Medical Centre column
-medical_centres$MedicalCentre <- gsub("&", "and", medical_centres$MedicalCentre, fixed = TRUE)
+# remove duplicate medical centres
+medical_centres <- medical_centres[!duplicated(medical_centres$Medical_Centre),]
+
+# change '&' to 'and' in the Medical Centre column
+medical_centres$Medical_Centre <- gsub("&", "and", medical_centres$Medical_Centre, fixed = TRUE)
 
 # number of medical centres in the dataset
 mc_rows <- nrow(medical_centres)
@@ -25,18 +31,21 @@ mc_rows <- nrow(medical_centres)
 stripped_address <- gsub('[0-9]+|[0-9]+[A-Za-z]|-|/', '', medical_centres$Address)
 stripped_address <- word(trimws(stripped_address, "l"), 1)
 
-# code credit to slava-kohut on stackoverflow at https://bit.ly/2IKCEyy
+# code credits to slava-kohut (https://stackoverflow.com/users/11908107/slava-kohut) on Stack Overflow 
+# at https://stackoverflow.com/questions/57925566/partial-match-word-from-sentence-in-r
 `%in_str%` <- function(pattern,s){
   grepl(pattern, s)
 }
 
-# populate Rating column
+# enter API key here
+# apiKey <- ##########################
+
+# populate the Rating column
 for (i in 1:mc_rows){
   # paste medical centre name to street name
-  mc_str <- paste(medical_centres$MedicalCentre[i], stripped_address[i])
+  mc_str <- paste(medical_centres$Medical_Centre[i], stripped_address[i])
   
   # find details of medical centre using Google Places API
-  # apiKey <- ####################
   curr_mc <- google_places(search_string = mc_str, key = apiKey)
   
   # if Google Places API result comes up empty, then enter 'No Rating' in the Rating column
@@ -92,7 +101,7 @@ medical_centres[is.na(medical_centres)] <- "No Rating"
 
 # create Google Maps link for each medical centre and populate the Directions column
 for (i in 1:mc_rows){
-  mc_link_str <- gsub("&", "", medical_centres$MedicalCentre[i], fixed = TRUE)
+  mc_link_str <- gsub("&", "", medical_centres$Medical_Centre[i], fixed = TRUE)
   mc_link_str <- gsub(" ", "%20", mc_link_str, fixed = TRUE)
   mc_link_str <- paste0(mc_link_str, '%2C%20')
   mc_link_add <- paste0(gsub(" ", "%20", medical_centres$Address[i], fixed = TRUE), '%2C%20Victoria%2C%20')
