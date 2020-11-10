@@ -1,5 +1,5 @@
 # load library
-library(dplyr)
+library(dplyr) 
 
 # read in dataset
 hospital_locations <- read.csv('Hospital_Locations.csv')
@@ -36,7 +36,7 @@ specialisations <- c('Surgery','Surgicentre','Plastic Surgery',
 # remove rows which contain the specialisation in the Medical Centre name
 for (specialisation in specialisations){
   hospital_locations <- hospital_locations[!grepl(specialisation, 
-                                                 hospital_locations$`Medical_Centre`),]
+                                                  hospital_locations$`Medical_Centre`),]
 }
 
 # reset index
@@ -45,14 +45,14 @@ rownames(hospital_locations) <- NULL
 # change Area column case to upper case
 hospital_locations$Area <- toupper(hospital_locations$Area)
 
-# remove values within parentheses in Area and Medical Centre column
+# remove values within parentheses in the Area and Medical Centre columns
 hospital_locations$Area <- gsub("\\s*\\([^\\)]+\\)","",as.character(hospital_locations$Area))
 hospital_locations$`Medical_Centre` <- gsub("\\s*\\([^\\)]+\\)","",as.character(hospital_locations$`Medical_Centre`))
 
-# remove commas and everything after the comma in Medical Centre column
+# remove commas and everything after the comma in the Medical Centre column
 hospital_locations$`Medical_Centre` <- gsub("(.*),.*", "\\1", as.character(hospital_locations$`Medical_Centre`))
 
-# remove dashes in Area column
+# remove dashes in the Area column
 hospital_locations$Area <- gsub("-", " ", hospital_locations$Area)
 
 # write to file
