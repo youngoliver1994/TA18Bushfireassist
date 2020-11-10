@@ -9,8 +9,8 @@ from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
 
 # read in both active fire datasets
-active_fire1 = pd.read_csv("fire_archive_M6_157545.csv")
-active_fire2 = pd.read_csv("fire_nrt_M6_157545.csv")
+active_fire1 = pd.read_csv("fire_archive_M6_164497.csv")      # last updated Thursday 5 November, 2020
+active_fire2 = pd.read_csv("fire_nrt_M6_164497.csv")          # file names need to change daily in accordance to the files received from NASA
 
 # append dataset 2 to dataset 1
 active_fires = active_fire1.append(active_fire2, sort=False)
@@ -37,12 +37,12 @@ shapes = sf.shapes()        # shapes of localities in the shapefile
 lon_lat = []
 
 i = 0
-while i < len(active_fire):
+while i < len(active_fires):
     lon_lat.append((active_fires.Longitude[i], active_fires.Latitude[i]))
     i = i + 1
     
 n_shp = len(shapes)               # number of localities
-n_rows = len(active_fires)        # number of rows in active_fire
+n_rows = len(active_fires)        # number of rows in active_fires
 
 for nshp in range(n_shp): 
     # for each shape in the shapefile, fill an array with the lon, lat points belonging to that shape
@@ -54,7 +54,7 @@ for nshp in range(n_shp):
         point = Point(lon_lat[i])
         if polygon.contains(point):
             # if current longitude and latitude pair exists in the polygon, this pair belongs to the locality
-            active_fires[‘Locality'].iloc[i] = recs[nshp][6]
+            active_fires['Locality'].iloc[i] = recs[nshp][6]
             
 # remove all NAs -- indicates these points do not belong to Victoria
 active_fires = active_fires[active_fires.Locality != "NA"]
@@ -62,7 +62,7 @@ active_fires = active_fires[active_fires.Locality != "NA"]
 # reset the index
 active_fires.reset_index(drop=True, inplace=True)
 
-# read in Australian Postcodes dataset
+# read in the Australian Postcodes dataset
 aus_postcodes = pd.read_csv("Australian_Postcodes.csv")
 
 # filter dataset to only contain data pertaining to VIC
@@ -87,7 +87,7 @@ for i in range(len(recs)):
     if recs[i][8] != '': 
         unique_locality_postcode.Postcode[i] = recs[i][8] 
                          
-# populate empty rows in the postcode column
+# populate empty rows in the Postcode column
 for i in range(len(unique_locality_postcode)):
     for j in range(len(localities)):
         if unique_locality_postcode.Locality[i] == localities[j]:
@@ -95,14 +95,14 @@ for i in range(len(unique_locality_postcode)):
                 unique_locality_postcode.Postcode[i] = postcodes[j]
                 break  
 
-# create a list of the Localities column in the active fire dataset
-active_fire_localities = list(active_fire.Locality)
+# create a list of the Localities column in the active fires dataset
+active_fire_localities = list(active_fires.Locality)
 
 for i in range(len(unique_locality_postcode)):
     # count how many times a Locality in the unique_locality_postcode dataset appears in the 
-    # active_fire_localities_list, this is indicative of how many times a fire occurred in that locality
+    # active_fire_localities list; this is indicative of how many times a fire occurred in that locality
     occurrences = active_fire_localities.count(unique_locality_postcode.Locality[i])
-    # fill the fire_activity_occurrences column accordingly
+    # fill the Fire_Activity_Occurrences column accordingly
     unique_locality_postcode.Fire_Activity_Occurrences[i] = occurrences
     
 unique_locality_postcode.to_csv('Fire Activity per Locality.csv', sep=',')
